@@ -1,0 +1,111 @@
+.navigation-bar {
+  position: relative;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  padding: 0.5em 0.5em;
+}
+
+.gov-logo {
+  width: 3.5em;
+  border-radius: 50%;
+}
+.gov-logo > img {
+  width: 100%;
+}
+.gov-logo:hover {
+  box-shadow: 0.1em 0.1em 0.5em blanchedalmond;
+  cursor: pointer;
+}
+
+.hamburger {
+  position: absolute;
+  right: 0.5em;
+  padding: 0.5em;
+  width: 2em;
+  height: 1.7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburger > span {
+  border-radius: 1px;
+  height: 2px;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+}
+
+.hamburger:hover {
+  cursor: pointer;
+  background-color: rgb(199, 199, 199);
+}
+.nav-option-container {
+  display: none;
+  width: 100%;
+  margin: 0.5em 0 0 0;
+  background-color: blanchedalmond;
+  border-radius: 0.2em;
+  transition: 1s ease-in-out;
+}
+.active {
+  display: block;
+}
+.nav-option-container > ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-option-container > ul > li {
+  width: fit-content;
+  display: inline-block;
+  padding: 0.5em;
+  border-radius: 0.2em;
+}
+.nav-option-container > ul > li::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  margin: auto;
+  background-color: blueviolet;
+  transition: 0.5s ease-in-out;
+}
+
+.nav-option-container > ul > li:hover::after {
+  width: 100%;
+}
+
+.nav-option-container > ul > li > a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 600px) {
+  .navigation-bar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .gov-logo {
+    width: 7em;
+  }
+  .hamburger {
+    display: none;
+  }
+
+  .nav-option-container {
+    display: block;
+    width: 70%;
+    background: none;
+  }
+  .nav-option-container > ul {
+    flex-direction: row;
+  }
+  .nav-option-container > ul > li:hover {
+    cursor: pointer;
+  }
+}
