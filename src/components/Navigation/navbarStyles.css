@@ -3,12 +3,13 @@
   width: 90%;
   display: flex;
   flex-direction: column;
-
+  font-size: 1.05rem;
   align-items: flex-start;
   padding: 0.5em 0.5em;
 }
 
 .gov-logo {
+  margin: 0.4em;
   width: 3.5em;
   border-radius: 50%;
 }
@@ -30,6 +31,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  border-radius: 0.5em;
 }
 
 .hamburger > span {
@@ -45,18 +47,23 @@
 }
 .nav-option-container {
   display: none;
-  width: 100%;
+  width: 94%;
   margin: 0.5em 0 0 0;
   background-color: blanchedalmond;
   border-radius: 0.2em;
   transition: 1s ease-in-out;
+  top: 5.3em;
+  position: absolute;
+  z-index: 2;
 }
 .active {
   display: block;
 }
 .nav-option-container > ul {
+  text-align: center;
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 
 .nav-option-container > ul > li {
@@ -87,11 +94,12 @@
 
 @media screen and (min-width: 600px) {
   .navigation-bar {
+    font-size: 1.3rem;
     flex-direction: row;
     justify-content: space-between;
   }
   .gov-logo {
-    width: 7em;
+    width: 5em;
   }
   .hamburger {
     display: none;
@@ -101,6 +109,8 @@
     display: block;
     width: 70%;
     background: none;
+
+    position: unset;
   }
   .nav-option-container > ul {
     flex-direction: row;

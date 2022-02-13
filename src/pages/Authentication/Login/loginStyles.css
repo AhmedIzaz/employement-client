@@ -1,0 +1,93 @@
+.login-page {
+  background-color: rgb(255, 246, 232);
+  padding: 1.5em;
+  border-radius: 0.5em;
+  box-shadow: 0.2em 0.2em 0.2em rgb(212, 212, 212);
+  margin: auto;
+  width: 80%;
+}
+.login-page > h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.login-page > form > div {
+  padding: 1em 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: grey;
+}
+
+.email-wrapper > input,
+.password-wrapper > input {
+  float: right;
+  padding: 0.7em 0.5em;
+  border-radius: 0.5em;
+  border: none;
+}
+
+.email-wrapper > input:focus,
+.password-wrapper > input:focus {
+  outline: none;
+}
+
+.email-wrapper > p,
+.password-wrapper > p {
+  text-align: center;
+  color: rgb(255, 0, 0);
+}
+.form-button-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.form-button-wrapper > button {
+  font-size: 1rem;
+  padding: 0.5em 2em;
+  border: none;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em 0.2em rgb(201, 200, 200);
+}
+
+.form-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+.form-footer > p {
+  margin: 0;
+  font-weight: 500;
+  color: black;
+  cursor: pointer;
+}
+
+.form-footer > p::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  margin: auto;
+  background-color: blue;
+  transition: 1s ease-in-out;
+}
+.form-footer > p:hover::after {
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .login-page {
+    width: 50%;
+  }
+  .login-page > form {
+    margin: auto;
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .login-page > form {
+    width: 50%;
+  }
+}

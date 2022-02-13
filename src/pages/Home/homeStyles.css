@@ -1,0 +1,53 @@
+.home-page > .section-one {
+  width: 100vw;
+  height: 30vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.288), rgba(0, 0, 0, 0.384)),
+    url(https://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/top_banner/26bad4db_15b3_49da_91ad_980595d0fb93/our_pride.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.form-path-box-container {
+  width: 100%;
+  height: 70%;
+  bottom: -38%;
+  position: absolute;
+}
+.form-path-box {
+  background-color: rgb(255, 244, 227);
+  border-radius: 0.5em;
+  box-shadow: 0.1em 0.1em 0.4em rgba(160, 160, 160, 0.699);
+  padding: 1em;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.form-path-box > h3 {
+  font-weight: 400;
+}
+.form-path-box > button {
+  border: none;
+  border-radius: 0.3em;
+  box-shadow: 0.1em 0.1em 0.3em blanchedalmond;
+  padding: 0.5em 1em;
+  background-color: rgba(199, 200, 255, 0.829);
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .home-page > .section-one {
+    height: 35vw;
+  }
+  .form-path-box-container {
+    width: 100%;
+    margin: auto;
+    bottom: -50%;
+  }
+  .form-path-box {
+    padding: 2em;
+    width: 60%;
+  }
+}
