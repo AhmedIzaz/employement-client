@@ -23,12 +23,12 @@ function Login() {
       <h3>লগইন করুন</h3>
       <form onSubmit={handleSubmit(onFormSubmit)}>
         <div className="email-wrapper">
-          <label for="email">email : </label>
+          <h5>ইমেইল</h5>
           <Controller
             control={control}
             name="email"
             render={({ field }) => (
-              <input {...field} type="email" placeholder="email..." />
+              <input {...field} type="email" placeholder="   email..." />
             )}
           />
           {errors.email && (
@@ -37,12 +37,12 @@ function Login() {
         </div>
 
         <div className="password-wrapper">
-          <label>Password : </label>
+          <h5>পাসওয়ার্ড</h5>
           <Controller
             control={control}
             name="password"
             render={({ field }) => (
-              <input {...field} type="password" placeholder="password..." />
+              <input {...field} type="password" placeholder="   password..." />
             )}
           />
           {errors.password && (
