@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .container {
+    @apply max-w-6xl min-h-screen flex flex-col justify-between mx-auto px-4 py-2;
+  }
+  .header-container {
+    @apply relative flex flex-col gap-8 justify-between items-start md:flex-row md:items-center;
+  }
+  .burger {
+    @apply flex flex-col justify-between items-center w-8 h-7 hover:bg-gray-400 hover:p-1 rounded-md md:hidden absolute right-1 cursor-pointer;
+  }
+  .burger-line {
+    @apply w-full h-1 bg-gray-900;
+  }
+  .nav-link-container {
+    @apply w-full flex flex-col justify-around items-center  md:basis-3/4 md:flex-row gap-8 z-10  top-10 absolute md:static;
+  }
+  .nav-link {
+    @apply after:content-[''] after:bg-red-600 after:block after:m-auto after:w-0 after:h-1 hover:after:w-full hover:after:duration-500;
+  }
+}

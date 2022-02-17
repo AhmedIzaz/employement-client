@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Header = () => {
   const [sidebar, setSideBar] = useState(false);
+  useEffect(() => {
+    window.addEventListener("resize", (e) =>
+      e.target.innerWidth >= 768 ? setSideBar(true) : setSideBar(false)
+    );
+    window.innerWidth >= 768 && setSideBar(true);
+  }, []);
   return (
-    <div className="relative flex flex-col gap-8 justify-between items-start md:flex-row md:items-center">
+    <div className="header-container">
       <div className="max-w-20 w-10 sm:w-16 md:w-20">
         <img
           className="w-full"
@@ -11,35 +17,19 @@ const Header = () => {
           alt="gov-logo"
         />
       </div>
-      <div
-        onClick={() => setSideBar(!sidebar)}
-        className="flex flex-col justify-between items-center w-8 h-7 hover:bg-gray-400 hover:p-1 rounded-md md:hidden absolute right-1"
-      >
-        <span className="w-full h-1 bg-gray-900"></span>
-        <span className="w-full h-1 bg-gray-900"></span>
-        <span className="w-full h-1 bg-gray-900"></span>
+      <div onClick={() => setSideBar(!sidebar)} className="burger">
+        <span className="burger-line"></span>
+        <span className="burger-line"></span>
+        <span className="burger-line"></span>
       </div>
-      <div
-        className={`w-full flex flex-col justify-around items-center  md:basis-3/4 md:flex-row gap-8 ${
-          !sidebar && "hidden"
-        } z-10  top-10 absolute md:static`}
-      >
-        <a
-          className="after:content-[''] after:bg-red-600 after:block after:m-auto after:w-0 after:h-1 hover:after:w-full hover:after:duration-500"
-          href="#"
-        >
+      <div className={`nav-link-container ${!sidebar && "hidden"} `}>
+        <a className="nav-link" href="#">
           Home
         </a>
-        <a
-          className="after:content-[''] after:bg-red-600 after:block after:m-auto after:w-0 after:h-1 hover:after:w-full hover:after:duration-500"
-          href="#"
-        >
+        <a className="nav-link" href="#">
           Contact
         </a>
-        <a
-          className="after:content-[''] after:bg-red-600 after:block after:m-auto after:w-0 after:h-1 hover:after:w-full hover:after:duration-500"
-          href="#"
-        >
+        <a className="nav-link" href="#">
           About
         </a>
       </div>
