@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
-
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 const Header = () => {
   const [sidebar, setSideBar] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
   useEffect(() => {
     window.addEventListener("resize", (e) =>
       e.target.innerWidth >= 768 ? setSideBar(true) : setSideBar(false)
@@ -9,8 +12,15 @@ const Header = () => {
     window.innerWidth >= 768 && setSideBar(true);
   }, []);
   return (
-    <div className="header-container">
-      <div className="max-w-20 w-10 sm:w-16 md:w-20">
+    <motion.div
+      whileInView={{ y: [50, 1], opacity: [0, 1] }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="header-container"
+    >
+      <div
+        onClick={() => navigate("/")}
+        className="max-w-20 w-10 sm:w-16 md:w-20 cursor-pointer"
+      >
         <img
           className="w-full"
           src="https://seeklogo.com/images/G/govt-of-bangladesh-logo-065AA3B482-seeklogo.com.png"
@@ -23,17 +33,34 @@ const Header = () => {
         <span className="burger-line"></span>
       </div>
       <div className={`nav-link-container ${!sidebar && "hidden"} `}>
-        <a className="nav-link" href="#">
+        <Link className="nav-link" to="/">
           Home
-        </a>
-        <a className="nav-link" href="#">
+        </Link>
+        <Link className="nav-link" to="/contact">
           Contact
-        </a>
-        <a className="nav-link" href="#">
+        </Link>
+        <Link className="nav-link" to="/about">
           About
-        </a>
+        </Link>
+        {sessionStorage.getItem("user") ? (
+          <p
+            className="nav-link"
+            onClick={() => {
+              sessionStorage.clear();
+              navigate("/");
+            }}
+          >
+            Logout
+          </p>
+        ) : (
+          location.pathname !== "/login" && (
+            <Link className="nav-link" to="/login">
+              Login
+            </Link>
+          )
+        )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
