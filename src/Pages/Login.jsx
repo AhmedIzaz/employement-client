@@ -7,18 +7,22 @@ import facebook from "../icons/facebook_main.png";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { user_login } from "../store/thunks/user_thunk";
 
 const Login = () => {
-  const { on_login } = useMethods();
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const {
     handleSubmit,
     formState: { errors },
     register,
   } = useForm({ resolver: yupResolver(schema) });
-  useEffect(() => {
-    sessionStorage.getItem("user") && navigate("/information-form");
-  }, []);
+  // 
+  const on_login = (data) => dispatch(user_login(data, navigate));
+  // 
+ 
   return (
     <div className=" w-11/12 max-w-sm mx-auto mt-4 shadow-lg py-4 bg-stone-100 my-6 rounded-md">
       <h3 className=" text-center font-serif text-2xl bg-inherit">Login</h3>

@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { user_logout } from "../store/thunks/user_thunk";
 const Header = () => {
   const [sidebar, setSideBar] = useState(false);
+  const dispatch = useDispatch();
+  const { user } = useSelector((store) => store.user_reducer);
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
@@ -42,13 +46,10 @@ const Header = () => {
         <Link className="nav-link" to="/about">
           About
         </Link>
-        {sessionStorage.getItem("user") ? (
+        {user ? (
           <p
             className="nav-link"
-            onClick={() => {
-              sessionStorage.clear();
-              navigate("/");
-            }}
+            onClick={() => dispatch(user_logout(navigate))}
           >
             Logout
           </p>

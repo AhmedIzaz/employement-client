@@ -1,10 +1,12 @@
-import { combineReducers, createStore } from "redux";
-import reducer from "./reducer";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import persistStore from "redux-persist/es/persistStore";
+import { persisted_user_reducer } from "./user_slice";
 
-const reducers = combineReducers({
-  first: reducer,
+export const store = configureStore({
+  reducer: {
+    user_reducer: persisted_user_reducer,
+  },
+  middleware: [...getDefaultMiddleware({ thunk: true })],
 });
 
-const store = createStore(reducers);
-
-export default store;
+export const persisted_store = persistStore(store);
